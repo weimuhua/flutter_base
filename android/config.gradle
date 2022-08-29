@@ -1,0 +1,15 @@
+ext {
+    // Android 部分
+    android = [
+            compileSdkVersion: 32,
+            minSdkVersion    : 24,
+            targetSdkVersion : 30,
+    ]
+
+    dependencies = [
+            OkHttp               : "com.squareup.okhttp3:okhttp:3.10.0",
+            Retrofit             : "com.squareup.retrofit2:retrofit:2.4.0",
+            ImmersionBar         : 'com.gyf.immersionbar:immersionbar:3.0.0',
+            ImmersionBar4Fragment: 'com.gyf.immersionbar:immersionbar-components:3.0.0',
+    ]
+}
