@@ -1,7 +1,13 @@
+import 'package:f_logs/f_logs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base/log.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  initLog();
   runApp(const MyApp());
+  deleteLogIfNeed();
 }
 
 class MyApp extends StatelessWidget {
@@ -51,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    FLog.info(text: "_incrementCounter, _counter = $_counter");
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
