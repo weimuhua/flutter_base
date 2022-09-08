@@ -1,15 +1,26 @@
+import 'dart:io';
+
 import 'package:f_logs/f_logs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_base/log.dart';
 
 import 'main_page_widget.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  _setStatusBarTransparent();
 
   initLog();
   runApp(const MaterialApp(home: MainPageWidget()));
   deleteLogIfNeed();
+}
+
+void _setStatusBarTransparent() {
+  if (Platform.isAndroid) {
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  }
 }
 
 class MyApp extends StatelessWidget {
