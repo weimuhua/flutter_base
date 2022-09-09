@@ -4,15 +4,13 @@ import 'dart:convert';
 
 @JsonSerializable()
 class ConfigRspEntity {
-
-  late int code;
-  late String msg;
-  late ConfigRspData data;
+  int? code;
+  String? msg;
+  ConfigRspData? data;
 
   ConfigRspEntity();
 
-  factory ConfigRspEntity.fromJson(Map<String, dynamic> json) =>
-      $ConfigRspEntityFromJson(json);
+  factory ConfigRspEntity.fromJson(Map<String, dynamic> json) => $ConfigRspEntityFromJson(json);
 
   Map<String, dynamic> toJson() => $ConfigRspEntityToJson(this);
 
@@ -24,13 +22,11 @@ class ConfigRspEntity {
 
 @JsonSerializable()
 class ConfigRspData {
-
-  late ConfigRspDataConfig config;
+  ConfigRspDataConfig? config;
 
   ConfigRspData();
 
-  factory ConfigRspData.fromJson(Map<String, dynamic> json) =>
-      $ConfigRspDataFromJson(json);
+  factory ConfigRspData.fromJson(Map<String, dynamic> json) => $ConfigRspDataFromJson(json);
 
   Map<String, dynamic> toJson() => $ConfigRspDataToJson(this);
 
@@ -42,23 +38,34 @@ class ConfigRspData {
 
 @JsonSerializable()
 class ConfigRspDataConfig {
-
   @JSONField(name: "agreement_url")
-  late String agreementUrl;
+  String? agreementUrl;
+  @JSONField(name: "open_vip_tips")
+  String? openVipTips;
+  @JSONField(name: "offline_config")
+  String? offlineConfig;
+  @JSONField(name: "trans_config")
+  String? transConfig;
+  @JSONField(name: "enable_reward_video")
+  String? enableRewardVideo;
+  @JSONField(name: "feedback_url")
+  String? feedbackUrl;
   @JSONField(name: "qq_group")
-  late String qqGroup;
+  String? qqGroup;
   @JSONField(name: "help_url")
-  late String helpUrl;
+  String? helpUrl;
+  @JSONField(name: "ocr_engine_list")
+  String? ocrEngineList;
+  @JSONField(name: "first_buy_gift_time")
+  String? firstBuyGiftTime;
   @JSONField(name: "qq_kefu")
-  late String qqKefu;
+  String? qqKefu;
   @JSONField(name: "privacy_url")
-  late String privacyUrl;
-  @JSONField(name: "agreement_url")
+  String? privacyUrl;
 
   ConfigRspDataConfig();
 
-  factory ConfigRspDataConfig.fromJson(Map<String, dynamic> json) =>
-      $ConfigRspDataConfigFromJson(json);
+  factory ConfigRspDataConfig.fromJson(Map<String, dynamic> json) => $ConfigRspDataConfigFromJson(json);
 
   Map<String, dynamic> toJson() => $ConfigRspDataConfigToJson(this);
 

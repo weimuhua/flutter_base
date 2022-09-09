@@ -7,6 +7,7 @@ import 'package:flutter/material.dart' show debugPrint;
 import 'package:flutter_base/http/bean/config_rsp_entity.dart';
 
 JsonConvert jsonConvert = JsonConvert();
+
 typedef JsonConvertFunction<T> = T Function(Map<String, dynamic> json);
 
 class JsonConvert {
@@ -90,22 +91,13 @@ class JsonConvert {
   //list is returned by type
   static M? _getListChildType<M>(List<Map<String, dynamic>> data) {
     if (<ConfigRspEntity>[] is M) {
-      return data
-          .map<ConfigRspEntity>(
-              (Map<String, dynamic> e) => ConfigRspEntity.fromJson(e))
-          .toList() as M;
+      return data.map<ConfigRspEntity>((Map<String, dynamic> e) => ConfigRspEntity.fromJson(e)).toList() as M;
     }
     if (<ConfigRspData>[] is M) {
-      return data
-          .map<ConfigRspData>(
-              (Map<String, dynamic> e) => ConfigRspData.fromJson(e))
-          .toList() as M;
+      return data.map<ConfigRspData>((Map<String, dynamic> e) => ConfigRspData.fromJson(e)).toList() as M;
     }
     if (<ConfigRspDataConfig>[] is M) {
-      return data
-          .map<ConfigRspDataConfig>(
-              (Map<String, dynamic> e) => ConfigRspDataConfig.fromJson(e))
-          .toList() as M;
+      return data.map<ConfigRspDataConfig>((Map<String, dynamic> e) => ConfigRspDataConfig.fromJson(e)).toList() as M;
     }
 
     debugPrint("${M.toString()} not found");
@@ -115,8 +107,7 @@ class JsonConvert {
 
   static M? fromJsonAsT<M>(dynamic json) {
     if (json is List) {
-      return _getListChildType<M>(
-          json.map((e) => e as Map<String, dynamic>).toList());
+      return _getListChildType<M>(json.map((e) => e as Map<String, dynamic>).toList());
     } else {
       return jsonConvert.asT<M>(json);
     }
